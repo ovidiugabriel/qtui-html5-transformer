@@ -28,7 +28,9 @@ def get_widgets(document : XML::Node) : Array(XML::Node)
     return find_elements_by_name(widgets[0], "widget")
 end
 
-def dispatch_element(type : String, name : String, properties : Array(XML::Node))
+alias QWidget = QPushButton;
+
+def dispatch_element(type : String, name : String, properties : Array(XML::Node)) : QWidget | Nil
     case type
         when "QPushButton"
             return QPushButton.new(name, properties)
