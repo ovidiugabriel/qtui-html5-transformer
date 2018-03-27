@@ -2,6 +2,8 @@
 require "xml"
 require "./QPushButton.cr"
 
+alias QWidget = QPushButton;
+
 #
 # Returns an array of all elements with the specified tag name.
 #
@@ -27,8 +29,6 @@ def get_widgets(document : XML::Node) : Array(XML::Node)
 
     return find_elements_by_name(widgets[0], "widget")
 end
-
-alias QWidget = QPushButton;
 
 def dispatch_element(type : String, name : String, properties : Array(XML::Node)) : QWidget | Nil
     case type
